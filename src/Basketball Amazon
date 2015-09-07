@@ -1,0 +1,76 @@
+8
+5
+-2
+4
+Z
+X
+9
++
++
+
+
+Problem Statement
+
+We are going to play a game with basketball.
+There are number of things you need to hit the ball on to get scores. Each one will be label a number that you can get. The label of number can be negative. And there are 3 exceptional labels.
+1.	Label X you will get double of last score.
+2.	Label + you will get total of last 2 scores.
+3.	Label Z you will lose last score.
+Now you need to calculate total score of the game.
+
+Input
+8
+5
+-2
+4
+Z
+X
+9
++
++
+
+Explain:
+	The first line is the number of balls (8 balls)
+	The first ball get 5 score, total is 5
+	The next ball get -2 score, total is 5 - 2 = 3. Last score is -2
+	The next ball get 4 score, total is 5 - 2 + 4 = 7. Last score is 4
+	The next ball get Z, total is 5 - 2 + 4  4 = 3. Last score is -2
+	The next ball get X, total is 5  2 + 4  4  4 = -1. Last score is  4
+	The next ball get 9, total is 5 - 2 + 4  4  4 + 9 = 8. Last score is 9
+	The next ball get +, total is 5  2 + 4  4 + 9 + 5 = 13. Last score is 5
+	The next ball get +, total is 5  2 + 4  4 + 9 + 5 + 14 = 27.
+   
+Output (Print out the total of score)
+
+27
+
+Please complete this code below
+
+There are few test cases you can take a look
+
+
+Input
+
+5
+1
+2
+4
+5
+6
+
+Output
+
+18
+
+Input
+6
+1
+2
+3
+4
+Z
+Z
+
+Output
+
+3
