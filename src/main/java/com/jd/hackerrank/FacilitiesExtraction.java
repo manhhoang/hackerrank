@@ -3,6 +3,7 @@ package com.jd.hackerrank;
 import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeMap;
@@ -26,7 +27,7 @@ public class FacilitiesExtraction {
     return false;
   }
 
-  @SuppressWarnings({"resource", "rawtypes", "unchecked"})
+  @SuppressWarnings("resource")
   public static void main(String[] args) throws Exception {
     String currentPath = new File(".").getCanonicalPath();
     String fileName = currentPath + "/src/Facilities Extraction";
@@ -35,12 +36,12 @@ public class FacilitiesExtraction {
     Scanner sc = new Scanner(file);
     int n = sc.nextInt();
     sc.nextLine();
-    TreeMap tm = new TreeMap();
+    Map<String, Integer> tm = new TreeMap<String, Integer>();
     for (int i = 0; i < n; i++) {
       String fa = sc.nextLine();
       tm.put(fa, i);
     }
-    Set set = tm.entrySet();
+    Set<Entry<String, Integer>> set = tm.entrySet();
     String des = sc.nextLine();
     Iterator i = set.iterator();
     while (i.hasNext()) {

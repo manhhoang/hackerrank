@@ -61,7 +61,7 @@ public class FindSubLinkedNode {
   @SuppressWarnings("resource")
   public static void main(String[] args) throws Exception {
     String currentPath = new File(".").getCanonicalPath();
-    String fileName = currentPath + "/src/input01";
+    String fileName = currentPath + "/src/Find Sub Linked Node";
     File file = new File(fileName);
 
     Scanner sc = new Scanner(file);

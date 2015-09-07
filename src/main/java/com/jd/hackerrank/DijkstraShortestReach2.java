@@ -63,7 +63,6 @@ public class DijkstraShortestReach2 {
     String fileName = currentPath + "/src/Dijkstra Shortest Reach 2";
     File file = new File(fileName);
 
-    // Scanner sc = new Scanner(System.in);
     Scanner sc = new Scanner(file);
     int t = sc.nextInt();
     for (int i = 0; i < t; i++) {
@@ -100,7 +99,7 @@ public class DijkstraShortestReach2 {
         }
         System.out.print(" ");
       }
-      System.out.println("");
+      System.out.println();
     }
 
   }
