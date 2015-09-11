@@ -11,7 +11,6 @@ import java.util.Scanner;
 class Node implements Comparable<Node> {
   public int longestPath;
   public int steepest;
-  public boolean endHill;
 
   public int compareTo(Node o) {
     if (this.longestPath != o.longestPath)
@@ -40,7 +39,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       } else {
@@ -48,7 +46,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       }
@@ -62,7 +59,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       } else {
@@ -70,7 +66,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       }
@@ -84,7 +79,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       } else {
@@ -92,7 +86,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       }
@@ -106,7 +99,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       } else {
@@ -114,7 +106,6 @@ public class SkiinginSingapore {
         if (val != null) {
           no.longestPath = val.longestPath;
           no.steepest = val.steepest + steep;
-          no.endHill = val.endHill;
           nodes.add(no);
         }
       }
@@ -128,10 +119,6 @@ public class SkiinginSingapore {
     node = new Node();
     node.longestPath += longestNode.longestPath + 1;
     node.steepest += longestNode.steepest;
-    node.endHill = longestNode.endHill;
-    if (i == m - 1) {
-      node.endHill = true;
-    }
     map.put(i * m + j, node);
 
     return node;
@@ -160,7 +147,7 @@ public class SkiinginSingapore {
       for (int j = 0; j < n; j++) {
         if (!visit[i][j]) {
           Node node = dfs(i, j, n, m);
-          if (node != null && node.endHill) {
+          if (node != null) {
             nodes.add(node);
           }
         }
