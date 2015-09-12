@@ -3,6 +3,7 @@ package com.jd.hackerrank;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -10,16 +11,17 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 
-class HotelCity {
+class HotelCity implements Comparable<HotelCity> {
+  public HotelCity() {
+  }
+
   public HotelCity(int budget, double score, int number) {
     this.budget = budget;
     this.score = score;
-    this.number = number;
   }
 
   public int budget;
   public double score;
-  public int number;
   public List<HotelCity> nextHotel;
 
   public void addNextHotel(HotelCity hotel) {
@@ -28,35 +30,48 @@ class HotelCity {
     }
     nextHotel.add(hotel);
   }
+
+  public int compareTo(HotelCity o) {
+    if (this.score < o.score) {
+      return 1;
+    }
+    return 0;
+  }
 }
 
 public class BudgetFriendly {
 
   static Map<Integer, HotelCity> mapHotels = new HashMap<Integer, HotelCity>();
-  static int[] budgetTo;
-  static double[] scoreTo;
 
-  private static void bfs(HotelCity hotel, int budget) {
-    double bestScore = 0;
-    budgetTo[hotel.number] = hotel.budget;
-    scoreTo[hotel.number] = hotel.score;
-    Queue<Integer> q = new LinkedList<Integer>();
-    q.add(hotel.number);
-    while(!q.isEmpty()){
-      int hotelNo = q.poll();
-      List<HotelCity> hotels = mapHotels.get(hotelNo);
-      if(hotels != null){
-        for(HotelCity h:hotels){
-          if(budgetTo(hotelNo) + h.budget <= budget){
-            budgetTo[h.number] = budgetTo(hotelNo) + h.budget;
-            if(scoreTo[hotelNo] + h.score > scoreTo[h.number]){
-              scoreTo[h.number] = scoreTo[hotelNo] + h.score;
-            }
+  private static HotelCity dfs(HotelCity hotel, int budget) {
+    HotelCity curHotel = null;
+    List<HotelCity> children = new ArrayList<HotelCity>();
+    if (hotel.nextHotel != null) {
+      for (HotelCity nextHotel : hotel.nextHotel) {
+        if (hotel.budget + nextHotel.budget <= 50) {
+          HotelCity h = dfs(nextHotel, budget);
+          if (h != null) {
+            children.add(h);
           }
         }
       }
     }
-    
+    if (children.size() > 0) {
+      Collections.sort(children);
+      for (HotelCity child : children) {
+        if (hotel.budget + child.budget <= budget) {
+          curHotel = new HotelCity();
+          curHotel.budget = hotel.budget + child.budget;
+          curHotel.score = hotel.score + child.score;
+          break;
+        }
+      }
+    }
+
+    if (hotel.nextHotel == null) {
+      curHotel = hotel;
+    }
+    return curHotel;
   }
 
   @SuppressWarnings("resource")
@@ -89,16 +104,26 @@ public class BudgetFriendly {
         hotels.add(hotel);
         if (c == 0) {
           totalFirstCity++;
-          mapHotels.put(i, hotel);
+          mapHotels.put(c * N + i, hotel);
         }
       }
       q.add(hotels);
     }
     DecimalFormat df = new DecimalFormat("#.##");
+    List<HotelCity> hotels = new ArrayList<HotelCity>();
     for (int i = 0; i < totalFirstCity; i++) {
-      bfs(mapHotels.get(i), B);
+      HotelCity hotel = dfs(mapHotels.get(i), B);
+      if (hotel != null) {
+        hotels.add(hotel);
+      }
     }
 
+    double bestScore = 0;
+    for (HotelCity h : hotels) {
+      if (bestScore < h.score) {
+        bestScore = h.score;
+      }
+    }
     if (bestScore != 0) {
       System.out.println(df.format(bestScore));
     } else {
