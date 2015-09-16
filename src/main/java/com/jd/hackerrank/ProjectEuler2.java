@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class ProjectEuler2 {
 
-  private static int total = 0;
+  private static long total = 0;
 
-  private static void totalFibo(int a, int b, int n) {
-    int c = a + b;
+  private static void totalFibo(long a, long b, int n) {
+    long c = a + b;
     if (c <= n) {
       if (c % 2 == 0) {
         total += c;
