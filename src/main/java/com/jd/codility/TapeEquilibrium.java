@@ -12,7 +12,7 @@ public class TapeEquilibrium {
     for (int j = 0; j < A.length; j++) {
       totalLeft += A[j];
       int value = Math.abs(total - 2 * totalLeft);
-      if (j == 0) {
+      if (min == 0) {
         min = value;
       }
       if (value < min) {
