@@ -1,9 +1,20 @@
 package com.jd.codility;
 
 public class TapeEquilibrium {
-  
+
   public static int solution(int[] A) {
-    return -1;
+    int total = 0;
+    for (int i = 0; i < A.length; i++) {
+      total += A[i];
+    }
+    int totalLeft = 0;
+    for (int j = 0; j < A.length; j++) {
+      totalLeft += A[j];
+      if (2 * totalLeft > total) {
+        return Math.abs(total - 2 * (totalLeft - A[j]));
+      }
+    }
+    return 0;
   }
 
   public static void main(String[] args) throws Exception {
