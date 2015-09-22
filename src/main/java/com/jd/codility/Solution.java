@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.codility;
 
 public class Solution {
 
@@ -20,10 +20,6 @@ public class Solution {
   }
 
   public static void main(String[] args) throws Exception {
-    // String currentPath = new File(".").getCanonicalPath();
-    // String fileName = currentPath + "/src/";
-    // File file = new File(fileName);
-
     int[] A = new int[8];
     A[0] = -1;
     A[1] = 3;

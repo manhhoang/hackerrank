@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.codility;
 
 public class FindOcurrence {
 
