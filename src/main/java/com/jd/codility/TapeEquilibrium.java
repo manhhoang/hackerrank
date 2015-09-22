@@ -8,13 +8,18 @@ public class TapeEquilibrium {
       total += A[i];
     }
     int totalLeft = 0;
+    int min = 0;
     for (int j = 0; j < A.length; j++) {
       totalLeft += A[j];
-      if (2 * totalLeft > total) {
-        return Math.abs(total - 2 * (totalLeft - A[j]));
+      int value = Math.abs(total - 2 * totalLeft);
+      if (j == 0) {
+        min = value;
+      }
+      if (value < min) {
+        min = value;
       }
     }
-    return 0;
+    return min;
   }
 
   public static void main(String[] args) throws Exception {
