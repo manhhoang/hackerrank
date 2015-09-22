@@ -9,14 +9,13 @@ public class FindOcurrence {
     }
     int l = 0;
     int r = N - 1;
-    while (l < r) {
+    while (l <= r) {
       int m = (l + r) / 2;
-      if (A[m] > X) {
+      if (A[m] >= X) {
         r = m - 1;
-      } else if (A[m] < X) {
+      } else {
         l = m + 1;
-      } else
-        break;
+      }
     }
     if (A[l] == X) {
       return l;
