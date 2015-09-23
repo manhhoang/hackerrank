@@ -1,0 +1,64 @@
+2
+3
+0 0 0
+1 2
+2 3
+3
+1 0 0
+1 2
+2 3
+
+
+
+
+
+Problem Statement
+
+Xaero is living in a country called Hackland. Hackland has the structure of a tree with N cities connected by N−1 bidirectional roads. Each city has an index between [1,N], and no two cities have the same index.
+
+The president of Hackland thinks that traveling within a city is safe. However, traveling between cities, city A to a different city B, is not safe due to the poor lighting conditions in Hackland.
+
+In order to ensure safety for the people traveling from one city to another, the president of Hackland decided to install some lights in the country. Each city can have, at most, 1 light installed in it. It is even possible that some cities already have lights installed. According to the president, traveling from one city A to a different city B is considered to be safe if there is at least 1 city on that path with a light installed.
+
+Xaero knows that the Hackland budget is very limited. Therefore, he wants to help his president by telling him the minimum number of lights to be installed such that traveling from each city to every other city has become safe.
+
+Input Format
+
+First line of input contains an integer T denoting the number of test cases. First line of each test case contains a single integer N denoting the number of cities in the country called Hackland. Next line of each test case contains N space separated integers denoting the initial configuration of country i.e a '0' at ith position denotes that no light is installed in ith city whereas a '1' at ith position denotes that a light is already installed in the ith city. Next N−1 lines of each test case contains a pair of integers U and V denoting that there exists a bidirectional road between city U and city V.
+
+Constraints
+
+1≤T≤105.
+
+1≤N≤5∗105.
+
+1≤U,V≤N.
+
+Configuration∈ {0, 1}.
+
+Sum of N over all test cases does not exceed 5∗105.
+
+Output Format
+
+For each test case, Print the required answer i.e. minimum number of lights needed to be installed in the country in order to ensure safety.
+
+Sample Input
+
+2
+3
+0 0 0
+1 2
+2 3
+3
+1 0 0
+1 2
+2 3
+Sample Output
+
+1
+1
+Explanation
+
+Test 1: Installing a light in city 2 ensures safety within the whole country i.e traveling from city 1 to city 2 is safe, travelling from city 1 to city 3 is safe, travelling from city 2 to city 3 is also safe.
+
+Test 2: Traveling from city 2 to city 3 is unsafe, so installing one light in city 2 or city 3 will make every path safe.

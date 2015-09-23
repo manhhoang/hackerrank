@@ -1,0 +1,68 @@
+1010
+1010
+
+
+
+
+
+Problem Statement
+
+Today is Xaero's birthday. His mom decided to surprise him with a truly fantastic gift: his favourite binary string A. But, unfortunately, all the stocks of binary string A have been sold out, and only a binary string B ( A≠B ) is available in the market.
+
+She purchased a binary string B and tries to convert it to binary string A by applying the given SWAP operation zero or more times.
+
+Explanation:
+
+SWAP
+Let the string B of the form B1B2..Bi....Bj..Bn
+Choose 2 indices i and j such that 1≤i,j≤|B|, where |B| denotes the length of string B.
+Swap the binary bits present at index i and j i.e. Bi and Bj.
+Resultant String = B1B2..Bj....Bi..Bn.
+Your task is to help Xaero's mom by telling her the minimum number of swap operations required to convert binary string B to binary string A.
+
+Input Format
+
+First line of input contains a binary string A. 
+Second line of input contains a binary string B.
+
+Constraints
+
+1≤|A|,|B|≤103 
+Ai,Bi∈ {0,1} 
+A≠B
+Output Format
+
+If it is possible to convert binary string B to binary string A, output the minimum number of operations required for the conversion, otherwise, output −1.
+
+Sample Input
+
+Sample Input #00
+
+1001
+0110
+Sample Output #00
+
+2
+Sample Input #01
+
+010
+11
+Sample Output #01
+
+-1
+Sample Input #02
+
+1110
+1100
+Sample Output #02
+
+-1
+Explanation
+
+Test 1: Binary string B can be converted to binary string A using following set of SWAP operations.
+
+Applying SWAP operation on indices 1 and 2. Resultant string will be 1010.
+Applying SWAP operation on indices 3 and 4. Resultant string will be 1001.
+Test 2: Binary string B cannot be converted to binary string A.
+
+Test 3: Binary string B cannot be converted to binary string A.
