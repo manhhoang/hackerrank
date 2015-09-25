@@ -7,24 +7,25 @@ import java.util.Scanner;
 
 public class XaeroAndLightingtheCities {
 
-  private static boolean[] config;
+  private static int[] config;
   private static List<Integer>[] g;
   private static int[][] d;
 
   private static void dfs(int v, int prev) {
+    d[0][v] = config[v];
+    d[1][v] = 0;
     for (int w : g[v]) {
       if (w != prev) {
         dfs(w, v);
         d[0][v] += d[1][w];
-        d[1][v] += Math.min(d[0][w], d[1][w]);
+        d[1][v] += d[0][w];
       }
     }
-
-    if (!config[v]) {
-      d[1][v]++;
-    }
+    d[1][v] = Math.min(d[0][v], d[1][v]);
   }
 
+  //https://www.hackerrank.com/rest/contests/101hack29/challenges/xaero-and-cities-lightening/hackers/Sumeet_Varma/download_solution
+  
   @SuppressWarnings({"resource", "unchecked"})
   public static void main(String[] args) throws Exception {
     String currentPath = new File(".").getCanonicalPath();
@@ -35,9 +36,9 @@ public class XaeroAndLightingtheCities {
     for (int i = 0; i < t; i++) {
       int n = sc.nextInt();
       g = new ArrayList[n];
-      config = new boolean[n];
+      config = new int[n];
       for (int j = 0; j < n; j++) {
-        config[j] = sc.nextInt() == 1;
+        config[j] = sc.nextInt();
         g[j] = new ArrayList<Integer>();
       }
       for (int k = 1; k < n; k++) {
