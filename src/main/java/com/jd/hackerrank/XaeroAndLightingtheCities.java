@@ -11,17 +11,17 @@ public class XaeroAndLightingtheCities {
   private static List<Integer>[] g;
   private static int[][] d;
 
-  private static void dfs(int u, int p) {
-    for (int v : g[u]) {
-      if (v != p) {
-        dfs(v, u);
-        d[0][u] += d[1][v];
-        d[1][u] += Math.min(d[0][v], d[1][v]);
+  private static void dfs(int v, int prev) {
+    for (int w : g[v]) {
+      if (w != prev) {
+        dfs(w, v);
+        d[0][v] += d[1][w];
+        d[1][v] += Math.min(d[0][w], d[1][w]);
       }
     }
 
-    if (!config[u]) {
-      ++d[1][u];
+    if (!config[v]) {
+      d[1][v]++;
     }
   }
 
@@ -41,10 +41,10 @@ public class XaeroAndLightingtheCities {
         g[j] = new ArrayList<Integer>();
       }
       for (int k = 1; k < n; k++) {
-        int u = sc.nextInt() - 1;
         int v = sc.nextInt() - 1;
-        g[u].add(v);
-        g[v].add(u);
+        int w = sc.nextInt() - 1;
+        g[v].add(w);
+        g[w].add(v);
       }
       d = new int[2][n];
       dfs(0, -1);
