@@ -1,0 +1,77 @@
+3 6  
+2 2   
+2 1    
+2 3   
+3 1  
+1 1  
+1 2 
+
+
+
+
+
+Problem Statement
+
+We are back in 500 B.C., and the Romans and Persians are trying to protect their villages by building walls on a common area to prevent invasion from enemies. This common area is a hexagonal grid as shown below:
+
+Board_inti.png
+
+The Romans and Persians build walls alternately on the grid. To protect their village from the enemy, the Romans need to connect the left and the right edges of the grid with their walls. However, the Persians have to connect the top and bottom edges of the grid with their walls to protect their village. A wall can be built on only one node of the grid in each move. The Romans build the wall first. A wall can only be built on an empty node.
+
+Each node in the grid may be connected to 2 to 6 nodes depending on the position of the node. Nodes are connected if they share an edge of the hexagon.
+
+For Example: 
+neighbors.png
+
+Node 1 is connected to nodes 2 and 4. Node 5 is connected to nodes 2, 3, 4, 6, 7 and 8. Node 6 is connected to nodes 3, 5, 8 and 9.
+
+You will be given a sequence of moves representing the node on which the Romans or the Persians build their piece of the wall. You need to determine who will be successful in protecting their villages.
+
+The first move always goes to the Romans, and the consecutive moves alternate between the Persians and the Romans. The nodes are represented by the rows and the column numbers ranging from 1 to N.
+
+Input 
+The first line of input consists of N where NxN is the size of the hexagonal grid, and M which is the number of moves. The next M lines consist of R[i] and C[i] representing the nodes at which the walls are built.
+
+1≤N≤1500 
+0≤M≤N2 
+1≤R[i]≤N 
+1≤C[i]≤N
+Output 
+You need to determine who will be successful in protecting their villages from the enemy. Output "ROMANS"/ "PERSIANS"/ "NEITHER" describing the outcome.
+
+Sample Input
+
+3 6  
+2 2   
+2 1    
+2 3   
+3 1  
+1 1  
+1 2  
+Sample Output
+
+PERSIANS
+Explanation 
+The red colored walls in the images represent walls built by the Romans, and the blue walls represent the walls built by the Persians.
+
+First line of input establishes that it is a 3x3 hexagonal grid, and there are 6 moves.
+
+Initially, the Hexagonal Grid is empty.
+
+Romans build their wall at (2,2).
+
+Move1.png
+
+Persians build their wall at (2,1).
+
+Move 2.png
+
+Romans build their wall at (2,3), and the Persians build their wall at (3,1).
+
+Move 4.png
+
+Romans build their wall at (1,1), and the Persians build the wall at (1,2).
+
+Move6.png
+
+The Persians managed to successfully connect the top and the bottom of the grid.
