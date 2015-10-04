@@ -12,32 +12,32 @@ public class HexagonalWar {
   private static boolean persianWin;
   private static boolean romansWin;
 
-  private static void dfs(int y, int x, int n, int type) {
+  private static void dfs(int y, int x, int n) {
     visit[y][x] = true;
     if (y == n - 1 && g[y][x] == Persians) {
       persianWin = true;
     } else if (x == n - 1 && g[y][x] == Romans) {
       romansWin = true;
     } else {
-      if (x > 0 && !visit[y][x - 1] && g[y][x - 1] == type) { // check left
-        dfs(y, x - 1, n, type);
+      if (x > 0 && !visit[y][x - 1] && g[y][x - 1] == g[y][x]) { // check left
+        dfs(y, x - 1, n);
       }
-      if (x < n - 1 && !visit[y][x + 1] && g[y][x + 1] == type) { // check right
-        dfs(y, x + 1, n, type);
+      if (x < n - 1 && !visit[y][x + 1] && g[y][x + 1] == g[y][x]) { // check right
+        dfs(y, x + 1, n);
       }
-      if (y > 0 && !visit[y - 1][x] && g[y - 1][x] == type) { // check top
-        dfs(y - 1, x, n, type);
+      if (y > 0 && !visit[y - 1][x] && g[y - 1][x] == g[y][x]) { // check top
+        dfs(y - 1, x, n);
       }
-      if (y < n - 1 && !visit[y + 1][x] && g[y + 1][x] == type) { // check bottom
-        dfs(y + 1, x, n, type);
+      if (y < n - 1 && !visit[y + 1][x] && g[y + 1][x] == g[y][x]) { // check bottom
+        dfs(y + 1, x, n);
       }
-      if (x < n - 1 && y > 0 && !visit[y - 1][x + 1] && g[y - 1][x + 1] == type) { // check
-                                                                                   // top-right
-        dfs(y - 1, x + 1, n, type);
+      if (x < n - 1 && y > 0 && !visit[y - 1][x + 1] && g[y - 1][x + 1] == g[y][x]) { // check
+                                                                                      // top-right
+        dfs(y - 1, x + 1, n);
       }
-      if (x > 0 && y < n - 1 && !visit[y + 1][x - 1] && g[y + 1][x - 1] == type) { // check
-                                                                                   // bottom-left
-        dfs(y + 1, x - 1, n, type);
+      if (x > 0 && y < n - 1 && !visit[y + 1][x - 1] && g[y + 1][x - 1] == g[y][x]) { // check
+                                                                                      // bottom-left
+        dfs(y + 1, x - 1, n);
       }
     }
 
@@ -66,13 +66,12 @@ public class HexagonalWar {
 
     for (int x = 0; x < n; x++) {
       if (g[0][x] == Persians) {
-        dfs(0, x, n, Persians);
+        dfs(0, x, n);
       }
     }
-    visit = new boolean[n][n];
     for (int y = 0; y < n; y++) {
       if (g[y][0] == Romans) {
-        dfs(y, 0, n, Romans);
+        dfs(y, 0, n);
       }
     }
     if (romansWin && persianWin) {
