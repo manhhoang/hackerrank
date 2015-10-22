@@ -19,7 +19,15 @@ public class BeautifulArray {
     long min = 1l << 60;
     for (int i = 0; i < n; i++)
       arr[i] = sc.nextInt();
-    for (int make = 0; make <= 10000; make++) {
+
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+
+    for (int make = 0; make <= max; make++) {
       long needplus = 0, needminus = 0;
       for (int i = 0; i < n; i++) {
         if (arr[i] < make)
