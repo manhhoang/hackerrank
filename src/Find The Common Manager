@@ -1,0 +1,25 @@
+6
+Sarah
+Fred
+June Tom
+Tom Nathan
+Tom Sarah
+Nathan Qing
+Nathan Fred
+
+Output
+Tom
+
+
+
+Input
+5
+Sarah
+Claudiu
+June Sarah
+Sarah Tom
+Tom Simon
+Tom Claudiu
+
+Output
+Sarah
