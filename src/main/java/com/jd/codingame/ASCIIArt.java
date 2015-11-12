@@ -18,15 +18,21 @@ public class ASCIIArt {
     int H = in.nextInt();
     in.nextLine();
     String T = in.nextLine();
+    char[] chars = T.toUpperCase().toCharArray();
     for (int i = 0; i < H; i++) {
       String ROW = in.nextLine();
+      for (int j = 0; j < chars.length; j++) {
+        int index = Character.codePointAt(chars, j);
+        if (index >= 65 && index <= 90) {
+          String letter = ROW.substring((index - 65) * L, (index - 65) * L + L);
+          System.out.print(letter);
+        } else {
+          String letter = ROW.substring(ROW.length() - L, ROW.length());
+          System.out.print(letter);
+        }
+      }
+      System.out.println();
     }
-
-    // Write an action using System.out.println()
-    // To debug: System.err.println("Debug messages...");
-
-    System.out.println("answer");
-
   }
 
 }
