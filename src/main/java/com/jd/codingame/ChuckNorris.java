@@ -13,12 +13,17 @@ public class ChuckNorris {
     Scanner in = new Scanner(file);
 
     String MESSAGE = in.nextLine();
-    String binary = stringToBinary(MESSAGE, false);
+    String binary = stringToBinary(MESSAGE);
     char[] chars = binary.toCharArray();
     int count = 0;
     for (int i = 0; i < chars.length; i++) {
       if (i == chars.length - 1) {
-        System.out.print(print(chars[i - 1], ++count));
+        if (chars[i] != chars[i - 1]) {
+          System.out.print(print(chars[i - 1], count));
+          System.out.print(" " + print(chars[i], 1));
+        } else {
+          System.out.print(print(chars[i - 1], ++count));
+        }
         break;
       }
       if (i > 0 && chars[i] != chars[i - 1]) {
@@ -41,18 +46,6 @@ public class ChuckNorris {
     return result;
   }
 
-  public static String stringToBinary(String str, boolean pad) {
-    byte[] bytes = str.getBytes();
-    StringBuilder binary = new StringBuilder();
-    for (byte b : bytes) {
-      binary.append(Integer.toBinaryString((int) b));
-      if (pad) {
-        binary.append(' ');
-      }
-    }
-    return binary.toString();
-  }
-
   public static String stringToBinary(String str) {
     StringBuilder binary = new StringBuilder();
     for (int i = 0; i < str.length(); i++) {
@@ -69,10 +62,10 @@ public class ChuckNorris {
 
   private static String zeroPad(String binChar) {
     int len = binChar.length();
-    if (len == 8)
+    if (len == 7)
       return binChar;
     String zeroPad = "0";
-    for (int i = 1; i < 8 - len; i++)
+    for (int i = 1; i < 7 - len; i++)
       zeroPad = zeroPad + "0";
     return zeroPad + binChar;
   }
