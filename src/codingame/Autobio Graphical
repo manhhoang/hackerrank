@@ -1,0 +1,29 @@
+2
+1210
+22
+
+
+
+
+
+INPUT:
+Line 1 : 1 integer N
+N next lines : 1 integer X
+
+OUTPUT:
+N lines: for each integer X, 1 if it is autobiographical, 0 otherwise.
+
+CONSTRAINTS:
+1 ≤ N < 5
+0 ≤ X < 10000000000
+
+EXAMPLE:
+
+Input
+2
+1210
+22
+
+Output
+1
+0
