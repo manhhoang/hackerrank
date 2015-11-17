@@ -1,6 +1,7 @@
 package com.jd.hackerrank;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LCS {
@@ -29,7 +30,7 @@ public class LCS {
 
     // Start from the right-most-bottom-most corner and
     // one by one store characters in lcs[]
-    int i = m, j = n;
+    int i = n, j = m;
     while (i > 0 && j > 0) {
       // If current character in X[] and Y are same, then
       // current character is part of LCS
@@ -49,7 +50,11 @@ public class LCS {
     }
 
     // Print the lcs
-    System.out.println("LCS of " + N + " and " + M + " is " + lcs);
+    Arrays.stream(N).forEach(System.out::print);
+    System.out.print(" and ");
+    Arrays.stream(M).forEach(System.out::print);
+    System.out.print(" is ");
+    Arrays.stream(lcs).forEach(System.out::print);
   }
 
   @SuppressWarnings("resource")
