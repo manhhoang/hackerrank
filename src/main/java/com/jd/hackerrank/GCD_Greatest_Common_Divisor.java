@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class GCD {
+public class GCD_Greatest_Common_Divisor {
 
   public static void main(String[] args) throws IOException {
     String currentPath = new File(".").getCanonicalPath();
