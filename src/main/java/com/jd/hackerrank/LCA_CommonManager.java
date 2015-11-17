@@ -21,7 +21,7 @@ class NodeManager {
   }
 }
 
-public class LowestCommonManager {
+public class LCA_CommonManager {
 
   private static NodeManager addNode(NodeManager node, String parentName, String childName) {
     NodeManager childNode = new NodeManager(childName);

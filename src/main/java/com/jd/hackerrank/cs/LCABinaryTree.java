@@ -32,8 +32,14 @@ public class LCABinaryTree {
   }
 
   public static void main(String[] args) {
-    // TODO Auto-generated method stub
+    Node root = new Node(1);
+    Node a = new Node(2);
+    Node b = new Node(3);
+    root.left = a;
+    root.right = b;
 
+    Node node = lca(root, a, b);
+    System.out.println(node.data);
   }
 
 }
