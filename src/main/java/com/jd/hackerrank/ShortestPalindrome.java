@@ -6,14 +6,11 @@ import java.util.Scanner;
 public class ShortestPalindrome {
 
   static int palin(int i, int j, String s) {
-    int count = 0;
     if (!isPalin(s, i, j)) {
-      count++;
-      int c = palin(++i, j, s);
-      int b = palin(i, --j, s);
-      count += c + b;
+      return 1 + palin(++i, j, s) + palin(i, --j, s);
+    } else {
+      return 0;
     }
-    return count;
   }
 
   static boolean isPalin(String s, int i, int j) {
@@ -38,7 +35,12 @@ public class ShortestPalindrome {
     File file = new File(fileName);
 
     Scanner sc = new Scanner(file);
-    String s = sc.nextLine();
-    System.out.print(shortPalin(s));
+    while (true) {
+      String s = sc.nextLine();
+      if (s.equals("")) {
+        break;
+      }
+      System.out.println(shortPalin(s));
+    }
   }
 }
