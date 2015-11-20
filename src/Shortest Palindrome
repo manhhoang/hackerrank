@@ -1,0 +1,22 @@
+abab
+
+
+
+
+You are require to form a palindrome by adding 0 or more characters to the string at any location which you find appropriate. Return the minimum number of 
+characters which needs to be added to string to transform it into a palindrom. 
+
+Input
+abab
+
+Output
+1
+
+Explanation
+A palindrome can be obtained by adding an 'a' to the end of the strong to form 'ababa'.
+
+Input
+abacaba
+
+Output
+0

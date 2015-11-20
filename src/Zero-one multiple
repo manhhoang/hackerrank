@@ -1,0 +1,19 @@
+4
+
+
+
+
+An integer whose base-ten representation consists only of zero and one is called a "zero-one".
+Given an arbitrary integer N, find the string S that represents smallest positive "zero-one" integer which is a multiple of N.
+
+Input Format
+One integer, N.
+
+Output Format
+Type cast of the integer S to a string and return that string. 
+
+Input
+4
+
+Output
+100
