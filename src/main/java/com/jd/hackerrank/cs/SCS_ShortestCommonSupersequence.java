@@ -10,33 +10,32 @@ public class SCS_ShortestCommonSupersequence {
     for (int i = 0; i <= M; i++) {
       for (int j = 0; j <= N; j++) {
         if (i == 0 || j == 0)
-          dp[i][j] = 0;
+          dp[i][j] = i | j;
         else if (x.charAt(i - 1) == y.charAt(j - 1))
-          dp[i][j] = 1 + dp[i - 1][j - 1];
+          dp[i][j] = dp[i - 1][j - 1] + 1;
         else
-          dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
+          dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + 1;
       }
     }
 
     // recover SCS itself and print it to standard output
-    int i = M, j = N;
-    while (i > 0 && j > 0) {
-      if (x.charAt(i) == y.charAt(j)) {
+    int i = 0, j = 0;
+    while (i < M && j < N) {
+      if (x.charAt(i) != y.charAt(j)) {
         System.out.print(x.charAt(i));
-        i--;
-        j--;
-      } else if (dp[i - 1][j] <= dp[i][j - 1]) {
-        i--;
-      } else {
-        j--;
-      }
+        i++;
+        j++;
+      } else if (dp[i + 1][j] <= dp[i][j + 1])
+        i++;
+      else
+        j++;
     }
 
   }
 
   public static void main(String[] args) {
-    String x = "geek";
-    String y = "eke";
+    String x = "AGGTAB";
+    String y = "GXTXAYB";
     int M = x.length();
     int N = y.length();
     scs(x, y, M, N);
