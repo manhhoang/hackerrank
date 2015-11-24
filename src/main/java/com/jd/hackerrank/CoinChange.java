@@ -40,9 +40,12 @@ public class CoinChange {
     File file = new File(fileName);
     Scanner sc = new Scanner(file);
     int N = sc.nextInt();
-    int[] S = new int[N];
-    for (int i = 0; i < N; i++) {
-      S[i] = sc.nextInt();
+    sc.nextLine();
+    String line = sc.nextLine();
+    String[] lines = line.split(" ");
+    int[] S = new int[lines.length];
+    for (int i = 0; i < S.length; i++) {
+      S[i] = Integer.parseInt(lines[i]);
     }
     int ans = count(S, S.length, N);
     System.out.println(ans);
