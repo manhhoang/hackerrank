@@ -1,6 +1,6 @@
 package com.jd.hackerrank.cs;
 
-public class SieveOfAtkin {
+public class PrimeSieveOfAtkin {
   /** Function to calculate all primes less than n **/
   private boolean[] calcPrimes(int limit) {
     /** initialize the sieve **/
@@ -54,7 +54,7 @@ public class SieveOfAtkin {
   public static void main(String[] args) {
     System.out.println("Sieve Of Atkin Prime Algorithm Test\n");
     /** Make an object of SieveOfAtkin class **/
-    SieveOfAtkin soa = new SieveOfAtkin();
+    PrimeSieveOfAtkin soa = new PrimeSieveOfAtkin();
     /** Accept n **/
     System.out.println("Enter number to find all primes less than the number\n");
     int n = 7;

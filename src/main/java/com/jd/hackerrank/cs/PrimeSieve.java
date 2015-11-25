@@ -24,15 +24,18 @@
 
 package com.jd.hackerrank.cs;
 
+import java.util.Arrays;
+
 public class PrimeSieve {
   public static void main(String[] args) {
     int N = 25;
 
     // initially assume all integers are prime
     boolean[] isPrime = new boolean[N + 1];
-    for (int i = 2; i <= N; i++) {
-      isPrime[i] = true;
-    }
+    Arrays.fill(isPrime, true);
+    // for (int i = 2; i <= N; i++) {
+    // isPrime[i] = true;
+    // }
 
     // mark non-primes <= N using Sieve of Eratosthenes
     for (int i = 2; i * i <= N; i++) {
@@ -49,7 +52,7 @@ public class PrimeSieve {
     // count primes
     int primes = 0;
     for (int i = 2; i <= N; i++) {
-      if (isPrime[i]){
+      if (isPrime[i]) {
         System.out.print(i + " ");
         primes++;
       }
