@@ -1,6 +1,23 @@
 package com.jd.hackerrank.cs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CombinationsMultipleArray {
+
+  private static void printSolve(int d, String[][] a, List<String> output) {
+    if (d == a.length) {
+      System.out.println(output.toString());
+      // output.stream().forEach(x -> System.out.print(x));
+      return;
+    }
+    for (int i = 0; i < a[d].length; i++) {
+      output.add(a[d][i]);
+      printSolve(d + 1, a, output);
+      output.remove(output.size() - 1);
+    }
+    return;
+  }
 
   private static void printSolve(int d, String s, String[][] a) {
     if (d == a.length) {
@@ -33,5 +50,8 @@ public class CombinationsMultipleArray {
 
     printSolve(0, "", a);
     System.out.println("Total combination: " + countSolve(0, "", a));
+
+    List<String> output = new ArrayList<>();
+    printSolve(0, a, output);
   }
 }
