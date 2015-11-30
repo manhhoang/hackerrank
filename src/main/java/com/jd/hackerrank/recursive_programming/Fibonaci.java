@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.recursive_programming;
 
 public class Fibonaci {
 

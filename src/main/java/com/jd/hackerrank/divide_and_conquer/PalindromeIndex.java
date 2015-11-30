@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.divide_and_conquer;
 
 import java.io.File;
 import java.util.Scanner;

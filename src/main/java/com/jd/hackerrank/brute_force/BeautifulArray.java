@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.brute_force;
 
 import java.io.File;
 import java.util.Scanner;

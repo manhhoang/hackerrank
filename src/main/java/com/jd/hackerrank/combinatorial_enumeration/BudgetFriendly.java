@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.combinatorial_enumeration;
 
 import java.io.File;
 import java.text.DecimalFormat;

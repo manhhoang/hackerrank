@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.graph;
 
 import java.io.File;
 import java.io.IOException;

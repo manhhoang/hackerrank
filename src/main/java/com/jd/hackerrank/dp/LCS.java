@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.dp;
 
 import java.io.File;
 import java.util.Arrays;
