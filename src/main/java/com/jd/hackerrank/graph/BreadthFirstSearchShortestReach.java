@@ -32,7 +32,7 @@ public class BreadthFirstSearchShortestReach {
 
     while (!q.isEmpty()) {
       int v = q.poll();
-      for (int w : graph.get(v)) {
+      for (int w : graph.getOrDefault(v, new ArrayList<>())) {
         if (!visit[w]) {
           distTo[w] = distTo[v] + 6;
           visit[w] = true;
