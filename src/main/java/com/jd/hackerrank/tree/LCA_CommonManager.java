@@ -1,4 +1,4 @@
-package com.jd.hackerrank.dp;
+package com.jd.hackerrank.tree;
 
 import java.io.File;
 import java.io.IOException;

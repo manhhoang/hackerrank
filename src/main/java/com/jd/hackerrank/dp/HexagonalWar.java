@@ -1,4 +1,4 @@
-package com.jd.hackerrank.graph;
+package com.jd.hackerrank.dp;
 
 import java.io.File;
 import java.util.Scanner;
