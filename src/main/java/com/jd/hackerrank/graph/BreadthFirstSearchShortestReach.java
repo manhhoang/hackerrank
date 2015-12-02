@@ -45,7 +45,7 @@ public class BreadthFirstSearchShortestReach {
   @SuppressWarnings("resource")
   public static void main(String[] args) throws Exception {
     String currentPath = new File(".").getCanonicalPath();
-    String fileName = currentPath + "/src/Breadth First Search Shortest Reach 1";
+    String fileName = currentPath + "/src/Breadth First Search Shortest Reach";
     File file = new File(fileName);
 
     Scanner sc = new Scanner(file);
