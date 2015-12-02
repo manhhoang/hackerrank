@@ -2,28 +2,34 @@ package com.jd.hackerrank.divide_and_conquer;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Quicksort2Sorting {
 
-  private static void exch(int[] a, int i, int j) {
-    int swap = a[i];
-    a[i] = a[j];
-    a[j] = swap;
+  private static void copy(ArrayList<Integer> list, int a[], int startIdx) {
+    for (int num : list) {
+      a[startIdx++] = num;
+    }
   }
 
   private static int partition(int[] a, int lo, int hi) {
-    int pivot = a[hi];
-    int i = lo; // place for swapping
-    for (int j = lo; j <= hi - 1; j++) {
-      if (a[j] <= pivot) {
-        exch(a, i, j);
-        i = i + 1;
-      }
+    int p = a[lo];
+    ArrayList<Integer> leftlist = new ArrayList<Integer>();
+    ArrayList<Integer> rightlist = new ArrayList<Integer>();
+
+    for (int i = lo + 1; i <= hi; i++) {
+      if (a[i] > p)
+        rightlist.add(a[i]);
+      else
+        leftlist.add(a[i]);
     }
-    exch(a, i, hi);
-    return i;
+    copy(leftlist, a, lo);
+    int ppos = leftlist.size() + lo;
+    a[ppos] = p;
+    copy(rightlist, a, ppos + 1);
+
+    return lo + leftlist.size();
   }
 
   private static void sort(int[] a, int lo, int hi) {
@@ -33,6 +39,10 @@ public class Quicksort2Sorting {
     int j = partition(a, lo, hi);
     sort(a, lo, j - 1);
     sort(a, j + 1, hi);
+    for (int i = lo; i <= hi; i++) {
+      System.out.print(a[i] + " ");
+    }
+    System.out.println();
   }
 
   public static void main(String[] args) throws IOException {
@@ -46,6 +56,5 @@ public class Quicksort2Sorting {
       a[i] = sc.nextInt();
     }
     sort(a, 0, a.length - 1);
-    Arrays.stream(a).forEach((x) -> System.out.print(x + " "));
   }
 }
