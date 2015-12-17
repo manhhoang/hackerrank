@@ -26,7 +26,8 @@ Number of times 5 appears is divisible by 3.
 Meanwhile, the counter to the destruction of 'The Beast' is running very fast. Can you save 'The Beast', and find the key before Sherlock?
 
 Input Format
-The 1st line will contain an integer T, the number of test cases. This is followed by T lines, each containing an integer N. i.e. the number of digits in the number. 
+The 1st line will contain an integer T, the number of test cases. 
+This is followed by T lines, each containing an integer N. i.e. the number of digits in the number. 
 
 Output Format
 Largest Decent Number having N digits. If no such number exists, tell Sherlock that he is wrong and print −1.
