@@ -7,11 +7,15 @@ abc
 
 In the code provided, fill up the ??? appropriately to solve the problem. Do not change more than 50 characters.
 
-Alice recently started learning about cryptography and found that anagrams are very useful. Two strings are anagrams of each other if they have same character set and same length. For example strings "bacdc" and "dcbac" are anagrams, while strings "bacdc" and "dcbad" are not.
+Alice recently started learning about cryptography and found that anagrams are very useful. 
+Two strings are anagrams of each other if they have same character set and same length. For example strings "bacdc" and "dcbac" are anagrams, 
+while strings "bacdc" and "dcbad" are not.
 
-Alice decides on an encryption scheme involving two large strings where encryption is dependent on the minimum number of character deletions required to make the two strings anagrams. She need your help in finding out this number.
+Alice decides on an encryption scheme involving two large strings where encryption is dependent on the minimum number of character 
+deletions required to make the two strings anagrams. She need your help in finding out this number.
 
-Given two strings (they can be of the same or different length) help her in finding the minimum number of character deletions required to make the two strings anagrams. Any characters can be deleted from any of the strings.
+Given two strings (they can be of the same or different length) help her in finding the minimum number of 
+character deletions required to make the two strings anagrams. Any characters can be deleted from any of the strings.
 
 Input Format 
 Two lines each containing a string.

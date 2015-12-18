@@ -1,4 +1,4 @@
-package com.jd.hackerrank;
+package com.jd.hackerrank.string;
 
 import java.io.File;
 import java.util.HashMap;
@@ -17,21 +17,18 @@ public class MakeItAnagram {
     String tar = in.nextLine();
     int length = 0;
     int total = 0;
-    Map<Character, Integer> an = new HashMap<Character, Integer>();
+    Map<Character, Integer> map = new HashMap<>();
     for (int i = 0; i < src.length(); i++) {
       total++;
       char c = src.charAt(i);
-      if (an.containsKey(c))
-        an.put(c, an.get(c) + 1);
-      else
-        an.put(c, 1);
+      map.merge(c, 1, Integer::sum);
     }
 
     for (int j = 0; j < tar.length(); j++) {
       total++;
       char c = tar.charAt(j);
-      if (an.containsKey(c) && an.get(c) != 0) {
-        an.put(c, an.get(c) - 1);
+      if (map.containsKey(c) && map.get(c) != 0) {
+        map.put(c, map.get(c) - 1);
         length += 2;
       }
 
