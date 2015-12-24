@@ -36,7 +36,7 @@ public class IceCreamParlor {
       int N = sc.nextInt();
       Index[] a = new Index[N];
       for (int i = 0; i < N; i++) {
-        Index index = new IceCreamParlor.Index(sc.nextInt(), i + 1);
+        Index index = new Index(sc.nextInt(), i + 1);
         a[i] = index;
       }
       Arrays.sort(a, Index.ValueComparator);
