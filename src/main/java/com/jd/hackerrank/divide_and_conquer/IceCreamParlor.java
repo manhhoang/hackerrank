@@ -8,9 +8,14 @@ import java.util.Scanner;
 
 public class IceCreamParlor {
 
-  public static class Index {
-    int val;
-    int index;
+  private static class Index {
+    private int val;
+    private int index;
+
+    public Index(int val, int index) {
+      this.val = val;
+      this.index = index;
+    }
 
     public static Comparator ValueComparator = new Comparator() {
       @Override
@@ -31,9 +36,7 @@ public class IceCreamParlor {
       int N = sc.nextInt();
       Index[] a = new Index[N];
       for (int i = 0; i < N; i++) {
-        Index index = new IceCreamParlor.Index();
-        index.val = sc.nextInt();
-        index.index = i + 1;
+        Index index = new IceCreamParlor.Index(sc.nextInt(), i + 1);
         a[i] = index;
       }
       Arrays.sort(a, Index.ValueComparator);
