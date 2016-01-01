@@ -3,16 +3,11 @@ package com.jd.codility;
 public class FrogJmp {
 
   public static int solution(int X, int Y, int D) {
-    int count = 0;
-    int total = X;
-    while (true) {
-      total += D;
-      if (Y < total) {
-        break;
-      }
-      count++;
-    }
-    return count;
+    int dis = Y - X;
+    if (dis % D != 0)
+      return dis / D + 1;
+    else
+      return dis / D;
   }
 
   public static void main(String[] args) throws Exception {
