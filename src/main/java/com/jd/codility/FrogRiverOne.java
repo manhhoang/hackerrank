@@ -2,7 +2,9 @@ package com.jd.codility;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import junit.framework.Assert;
 
@@ -57,6 +59,16 @@ public class FrogRiverOne {
     if (count < X)
       ans = -1;
     return ans;
+  }
+
+  public int solution1(int X, int[] A) {
+    Set<Integer> bucket = new HashSet<>();
+    for (int i = 0; i < A.length; i++) {
+      bucket.add(A[i]);
+      if (bucket.size() == X)
+        return i;
+    }
+    return -1;
   }
 
   @Test
