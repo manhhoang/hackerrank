@@ -1,4 +1,4 @@
-package com.jd.codility;
+package com.jd.codility.sorting;
 
 import java.util.Arrays;
 

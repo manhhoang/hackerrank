@@ -1,4 +1,4 @@
-package com.jd.codility;
+package com.jd.codility.prefix_sums;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.jd.codility;
+package com.jd.codility.maximum_slice_problem;
 
 import org.junit.Assert;
 import org.junit.Test;
