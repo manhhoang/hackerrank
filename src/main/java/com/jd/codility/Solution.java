@@ -1,11 +1,12 @@
 package com.jd.codility;
 
-import java.util.ArrayList;
-import java.util.List;
+import junit.framework.Assert;
+
+import org.junit.Test;
 
 public class Solution {
 
-  public static int solution1(int[] A) {
+  public static int solution(int[] A) {
     int n = A.length;
     int result = 0;
     for (int i = 0; i < n - 1; i++) {
@@ -32,57 +33,11 @@ public class Solution {
     return result + r;
   }
 
-  public static int solution2(int[] A) {
-    int n = A.length;
-    int result = 0;
-    for (int i = 0; i < n; i++) {
-      for (int j = i; j < n; j++) {
-        int dis = A[i] + A[j] + j - i;
-        result = Math.max(result, dis);
-      }
-    }
-    return result;
-  }
-
-  public static int solution(int[] A) {
-    int n = A.length;
-    int result = 100000;
-    List<Integer> listLocations = new ArrayList<Integer>();
-    for (int i = 0; i < n; i++) {
-      if (!listLocations.contains(A[i])) {
-        listLocations.add(A[i]);
-      }
-    }
-
-    int start = 0;
-    while (start < n) {
-      List<Integer> templistLocations = new ArrayList<Integer>();
-      templistLocations.addAll(listLocations);
-      for (int i = start; i < n; i++) {
-        if (templistLocations.contains(A[i])) {
-          templistLocations.remove(templistLocations.indexOf(A[i]));
-        }
-        if (templistLocations.size() == 0) {
-          result = Math.min(i - start + 1, result);
-        }
-      }
-      start++;
-    }
-    return result;
-  }
-
-  public static void main(String[] args) throws Exception {
-    int[] A = new int[8];
-    A[0] = 7;
-    A[1] = 3;
-    A[2] = 7;
-    A[3] = 3;
-    A[4] = 1;
-    A[5] = 3;
-    A[6] = 4;
-    A[7] = 1;
-
+  @Test
+  public void test1() {
+    int[] A = new int[] {7, 3, 7, 3, 1, 3, 4, 1};
     int ans = solution(A);
+    Assert.assertEquals(2, ans);
     System.out.println(ans);
   }
 }
