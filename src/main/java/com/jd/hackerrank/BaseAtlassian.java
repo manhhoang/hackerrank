@@ -9,10 +9,6 @@ import org.junit.Test;
 
 public class BaseAtlassian {
 
-  private static String convertBase7(int number) {
-    return Integer.toString(number, 7);
-  }
-
   public static String solution(int n) {
     Map<String, String> map = new HashMap<>();
     map.put("0", "0");
@@ -22,7 +18,7 @@ public class BaseAtlassian {
     map.put("4", "s");
     map.put("5", "i");
     map.put("6", "n");
-    String base7 = convertBase7(n);
+    String base7 = Integer.toString(n, 7);
     String ans = "";
     for (int i = 0; i < base7.length(); i++) {
       ans += map.get(String.valueOf(base7.charAt(i)));
