@@ -37,21 +37,26 @@ public class LookAndSay {
 
   @Test
   public void test1() {
-    Assert.assertEquals("1211", solution("11", 2));
+    Assert.assertEquals("21", solution("11", 1));
   }
 
   @Test
   public void test2() {
-    Assert.assertEquals("111221", solution("11", 3));
+    Assert.assertEquals("1211", solution("11", 2));
   }
 
   @Test
   public void test3() {
-    Assert.assertEquals("312211", solution("11", 4));
+    Assert.assertEquals("111221", solution("11", 3));
   }
 
   @Test
   public void test4() {
+    Assert.assertEquals("312211", solution("11", 4));
+  }
+
+  @Test
+  public void test5() {
     Assert.assertEquals("13112221", solution("11", 5));
   }
 }
