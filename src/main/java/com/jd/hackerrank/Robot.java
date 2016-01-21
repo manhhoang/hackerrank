@@ -16,11 +16,9 @@ public class Robot {
         index = 0;
       } else if (instructions.charAt(i) == 'M' && index < 9) {
         index++;
-      } else if (instructions.charAt(i) == 'L') {
-        if (arr[index] < 15 && hold) {
-          arr[index]++;
-          hold = false;
-        }
+      } else if (instructions.charAt(i) == 'L' && arr[index] < 15 && hold) {
+        arr[index]++;
+        hold = false;
       }
     }
     String ans = "";
