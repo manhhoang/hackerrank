@@ -9,14 +9,17 @@ public class Robot {
   static String compute(String instructions) {
     int[] arr = new int[10];
     int index = 0;
+    boolean hold = false;
     for (int i = 0; i < instructions.length(); i++) {
       if (instructions.charAt(i) == 'P') {
+        hold = true;
         index = 0;
       } else if (instructions.charAt(i) == 'M' && index < 9) {
         index++;
       } else if (instructions.charAt(i) == 'L') {
-        if (arr[index] < 15) {
+        if (arr[index] < 15 && hold) {
           arr[index]++;
+          hold = false;
         }
       }
     }
@@ -57,11 +60,16 @@ public class Robot {
 
   @Test
   public void test6() {
-    Assert.assertEquals("F100000000", compute("PLPLPLPLPLPLPLPLPLPLPLPLPLPLPLML"));
+    Assert.assertEquals("F100000000", compute("PLPLPLPLPLPLPLPLPLPLPLPLPLPLPLPLML"));
   }
 
   @Test
   public void test7() {
     Assert.assertEquals("0000000001", compute("PMMMMMMMMMMML"));
+  }
+
+  @Test
+  public void test8() {
+    Assert.assertEquals("0010000000", compute("PMMLMLMMMLMMMLMML"));
   }
 }
