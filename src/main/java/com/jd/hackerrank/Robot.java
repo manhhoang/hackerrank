@@ -6,37 +6,62 @@ import org.junit.Test;
 
 public class Robot {
 
-  public String solution(String command) {
+  static String compute(String instructions) {
     int[] arr = new int[10];
     int index = 0;
-    for (int i = 0; i < command.length(); i++) {
-      if (command.charAt(i) == 'P') {
+    for (int i = 0; i < instructions.length(); i++) {
+      if (instructions.charAt(i) == 'P') {
         index = 0;
-      } else if (command.charAt(i) == 'M') {
+      } else if (instructions.charAt(i) == 'M' && index < 9) {
         index++;
-      } else {
-        arr[index]++;
+      } else if (instructions.charAt(i) == 'L') {
+        if (arr[index] < 15) {
+          arr[index]++;
+        }
       }
     }
     String ans = "";
     for (int i = 0; i < arr.length; i++) {
-      ans += String.valueOf(Integer.toString(arr[i], 15)).toUpperCase();
+      if (arr[i] == 15)
+        ans += "F";
+      else
+        ans += String.valueOf(Integer.toString(arr[i], 15)).toUpperCase();
     }
     return ans;
   }
 
   @Test
   public void test1() {
-    Assert.assertEquals("0211000000", solution("PMLPMMMLPMLPMML"));
+    Assert.assertEquals("0211000000", compute("PMLPMMMLPMLPMML"));
   }
 
   @Test
   public void test2() {
-    Assert.assertEquals("A000000000", solution("PLPLPLPLPLPLPLPLPLPL"));
+    Assert.assertEquals("A000000000", compute("PLPLPLPLPLPLPLPLPLPL"));
   }
 
   @Test
   public void test3() {
-    Assert.assertEquals("B000000000", solution("PLPLPLPLPLPLPLPLPLPLPL"));
+    Assert.assertEquals("B000000000", compute("PLPLPLPLPLPLPLPLPLPLPL"));
+  }
+
+  @Test
+  public void test4() {
+    Assert.assertEquals("E000000000", compute("PLPLPLPLPLPLPLPLPLPLPLPLPLPL"));
+  }
+
+  @Test
+  public void test5() {
+    Assert.assertEquals("F000000000", compute("PLPLPLPLPLPLPLPLPLPLPLPLPLPLPL"));
+  }
+
+  @Test
+  public void test6() {
+    Assert.assertEquals("F100000000", compute("PLPLPLPLPLPLPLPLPLPLPLPLPLPLPLML"));
+  }
+
+  @Test
+  public void test7() {
+    Assert.assertEquals("0000000001", compute("PMMMMMMMMMMML"));
   }
 }
