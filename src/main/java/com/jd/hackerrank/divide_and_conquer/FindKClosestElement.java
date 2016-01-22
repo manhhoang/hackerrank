@@ -15,7 +15,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Findkclosestelements {
+public class FindKClosestElement {
 
   public static Object[] solve(int[] a, int K, int X) {
     Arrays.sort(a);

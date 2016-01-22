@@ -5,16 +5,25 @@ import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Countthenumberofoccurrences {
+public class CountTheNumberOfOccurrence {
 
   public static int solve(int[] a, int x) {
     int len = a.length;
     Arrays.sort(a);
-    int l = Arrays.binarySearch(a, x);
-    int c = 0;
-    for (int i = l; i < len; i++) {
-      if (a[i] == a[l]) {
+    int m = Arrays.binarySearch(a, x);
+    if (m < 0)
+      return -1;
+
+    int l = m - 1;
+    int r = m + 1;
+    int c = 1;
+    while (true) {
+      if (l >= 0 && a[l] == a[m]) {
         c++;
+        l--;
+      } else if (r < len && a[r] == a[m]) {
+        c++;
+        r++;
       } else {
         break;
       }
