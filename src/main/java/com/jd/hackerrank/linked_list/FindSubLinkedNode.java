@@ -15,6 +15,15 @@ public class FindSubLinkedNode {
     }
   };
 
+  private static int count(LinkedList head) {
+    int count = 1;
+    while (head.next != null) {
+      head = head.next;
+      count++;
+    }
+    return count;
+  }
+
   public static LinkedList insert(LinkedList head, int val) {
     if (head == null) {
       head = new LinkedList(val);
@@ -30,6 +39,33 @@ public class FindSubLinkedNode {
   }
 
   static int find(LinkedList list, LinkedList sublist) {
+    LinkedList first = sublist;
+    int sourceCount = count(list);
+    int targetCount = count(sublist);
+    int max = (sourceCount - targetCount);
+
+    for (int i = 0; i <= max; i++) {
+      while (list.next != null && list.val != first.val) {
+        list = list.next;
+        i++;
+      }
+
+      if (i <= max) {
+        int j = i + 1;
+        int end = j + targetCount - 1;
+        while (list.next != null && sublist.next != null && j < end
+            && list.next.val == sublist.next.val) {
+          j++;
+          list = list.next;
+          sublist = sublist.next;
+        }
+        list = list.next;
+        if (j == end) {
+          return i;
+        }
+      }
+    }
+    return -1;
   }
 
   public static int solution(int[] arr, int[] subarr) {
@@ -57,12 +93,12 @@ public class FindSubLinkedNode {
 
   @Test
   public void test3() {
-    Assert.assertEquals(1, solution(new int[] {1, 2, 3, 4, 5}, new int[] {4, 5}));
+    Assert.assertEquals(3, solution(new int[] {1, 2, 3, 4, 5}, new int[] {4, 5}));
   }
 
   @Test
   public void test4() {
-    Assert.assertEquals(1, solution(new int[] {1, 2, 3, 4, 5}, new int[] {1, 2}));
+    Assert.assertEquals(0, solution(new int[] {1, 2, 3, 4, 5}, new int[] {1, 2}));
   }
 
   @Test
@@ -82,6 +118,6 @@ public class FindSubLinkedNode {
 
   @Test
   public void test8() {
-    Assert.assertEquals(1, solution(new int[] {2, 3, 2, 4, 5}, new int[] {2, 4}));
+    Assert.assertEquals(2, solution(new int[] {2, 3, 2, 4, 5}, new int[] {2, 4}));
   }
 }
