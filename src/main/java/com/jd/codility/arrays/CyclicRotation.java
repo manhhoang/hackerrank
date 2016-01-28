@@ -19,4 +19,9 @@ public class CyclicRotation {
     Assert.assertArrayEquals(new int[] {4, 1, 2, 3}, solution(new int[] {1, 2, 3, 4}, 1));
   }
 
+  @Test
+  public void test2() {
+    Assert.assertArrayEquals(new int[] {3, 4, 1, 2}, solution(new int[] {1, 2, 3, 4}, 2));
+  }
+
 }
