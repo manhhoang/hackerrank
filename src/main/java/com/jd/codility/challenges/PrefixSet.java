@@ -1,8 +1,5 @@
 package com.jd.codility.challenges;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -10,13 +7,13 @@ import org.junit.Test;
 public class PrefixSet {
 
   public int solution(int[] A) {
-    Map<Integer, Integer> map = new HashMap<>();
     int j = 0;
+    boolean[] ocur = new boolean[A.length];
     for (int i = 0; i < A.length; i++) {
-      Integer val = map.get(A[i]);
-      if (val == null) {
+      boolean val = ocur[A[i]];
+      if (!val) {
         j = i;
-        map.put(A[i], 1);
+        ocur[A[i]] = true;
       }
     }
 
