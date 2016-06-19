@@ -1,0 +1,48 @@
+4
+5 10 15 30
+2
+
+
+
+
+
+You are given a set, SS, of NN distinct integers. Perform the operation below on the set until such a point as the size of the set (|S||S|) no longer changes when the operation is performed. The operation is as follows:
+
+Choose any 22 distinct numbers, xx and yy, in set SS. Calculate their absolute difference (|x−y||x−y|), and insert the result into the set. Recall that a set is a collection of distinct objects, so |S||S| will not change if you attempt to insert a value it already contains.
+
+Perform the above operation on SS until until |S||S| no longer changes. Then print the MthMth greatest number present in the final set.
+
+Note: It is guaranteed that |S|≥M|S|≥M.
+
+Input Format
+
+The first line contains an integer, NN, denoting the size of the initial set. 
+The second line contains NN space-separated integers denoting the elements present in the initial set, SS. 
+The third line contains an integer, MM (our output is the MthMth greatest integer in the final set).
+
+Constraints
+
+2≤N≤1052≤N≤105
+1≤M≤1051≤M≤105
+All integers in initial set SS are ≤105≤105
+Output Format
+
+Print the MthMth greatest integer in the final set on a new line.
+
+Sample Input
+
+3   
+2 6 10   
+2
+Sample Output
+
+8
+Explanation
+
+Our initial set S=[2,6,10]S=[2,6,10], and we will refer to the set resulting from an operation as S′S′.
+
+S=[2,6,10]S=[2,6,10]. We choose x=2x=2 and y=6y=6. We insert |2−6|=4|2−6|=4 into the set, resulting in S′=[2,4,6,10]S′=[2,4,6,10].
+S=[2,4,6,8]S=[2,4,6,8]. We choose x=2x=2 and y=10y=10. We insert |2−10|=8|2−10|=8 into the set, resulting in S′=[2,4,6,8,10]S′=[2,4,6,8,10].
+At this point, no operation using any possible xx and yy combination will result in any new numbers being added to the set. Thus, our final set of integers is [2,4,6,8,10][2,4,6,8,10].
+
+M=2M=2, and our MthMth (2nd2nd) greatest integer in [2,4,6,8,10][2,4,6,8,10] is 88, so we print 88 on a new line.
