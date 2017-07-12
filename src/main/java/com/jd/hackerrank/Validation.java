@@ -148,11 +148,6 @@ public class Validation {
 
     @Test
     public void test2() {
-        Assert.assertEquals("0:0:0:format_error", validate("~~~"));
-    }
-
-    @Test
-    public void test3() {
         Assert.assertEquals("2:6:7:address_4", validate(
                     "|name|address|"
                 + "~n||1|Patrick|pat@test.com|"
@@ -160,10 +155,20 @@ public class Validation {
     }
 
     @Test
-    public void test4() {
+    public void test3() {
         Assert.assertEquals("2:3:2:address~n", validate(
               "~n~n~n|age|name|address~~n|"
                 + "~n|Patrick@test.com|pat@test.com~~~||"
                 + "~n|Annie||annie@test.com|~n"));
+    }
+
+    @Test
+    public void test4() {
+        Assert.assertEquals("0:0:0:format_error", validate("~~~"));
+    }
+
+    @Test
+    public void testWithTab() {
+        Assert.assertEquals("0:0:0:format_error", validate("|age|name|address|  "));
     }
 }
