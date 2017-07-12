@@ -11,8 +11,9 @@ import java.util.Set;
 public class Validation {
 
     public static String validate(String msg) {
+        String errorFormat = "0:0:0:format_error";
         try {
-            validateSingle(msg);
+            validateCharacter(msg);
             validateEscape(msg);
             msg = msg.replace("~~", "...");
             String[] records = msg.split("\\~n", 0);
@@ -24,12 +25,12 @@ public class Validation {
             List<Integer> emptyFields = new ArrayList<>();
             List<Integer> fields = new ArrayList<>();
             for (int i = 1; i < records.length; i++) {
-                Object[] results = validateRecord(records[i], numberOfField);
-                if (numberOfField < (Integer) results[0]) {
-                    numberOfField = (Integer) results[0];
+                int[] results = validateRecord(records[i]);
+                if (numberOfField < results[0]) {
+                    numberOfField = results[0];
                 }
-                emptyFields.add((Integer) results[1]);
-                fields.add((Integer) results[0]);
+                emptyFields.add(results[1]);
+                fields.add(results[0]);
             }
             for (int i = 0; i < fields.size(); i++) {
                 numberOfEmpty += emptyFields.get(i) + (numberOfField - fields.get(i));
@@ -39,8 +40,7 @@ public class Validation {
             }
             return (records.length - 1) + ":" + numberOfField + ":" + numberOfEmpty + ":" + name;
         } catch (Exception e) {
-
-            return "0:0:0:format_error";
+            return errorFormat;
         }
     }
 
@@ -51,31 +51,31 @@ public class Validation {
         }
         record = record.substring(1, record.length() - 1);
         String[] names = record.split("\\|", -1);
-        Set<String> namecheck = new HashSet<>();
+        Set<String> nameCheck = new HashSet<>();
         for (String s : names) {
             if (s.length() == 0 || s.trim().length() == 0) {
                 throw new Exception();
             }
-            if (!namecheck.add(s)) {
+            if (!nameCheck.add(s)) {
                 throw new Exception();
             }
         }
         Object[] results = new Object[3];
-        String lastname = names[names.length - 1];
-        lastname = lastname.replace("__", "|");
-        lastname = lastname.replace("...", "~");
+        String lastName = names[names.length - 1];
+        lastName = lastName.replace("__", "|");
+        lastName = lastName.replace("...", "~");
         results[0] = names.length;
-        results[1] = lastname;
+        results[1] = lastName;
         return results;
     }
 
-    private static Object[] validateRecord(String record, int headers) throws Exception {
+    private static int[] validateRecord(String record) throws Exception {
         record = record.replace("~|", "__");
         if (!record.startsWith("|") || !record.endsWith("|")) {
             throw new Exception();
         }
         if (record.length() == 1) {
-            Object[] results = new Object[3];
+            int[] results = new int[2];
             results[0] = 0;
             results[1] = 0;
             return results;
@@ -90,11 +90,10 @@ public class Validation {
             }
         }
 
-        Object[] results = new Object[3];
+        int[] results = new int[2];
         results[0] = numberOfField;
         results[1] = numberOfEmpty;
         return results;
-
     }
 
     private static String[] correct(String[] records) {
@@ -107,7 +106,7 @@ public class Validation {
                 result.add(records[i]);
             }
         }
-        String a[] = new String[result.size()];
+        String[] a = new String[result.size()];
         result.toArray(a);
         return a;
     }
@@ -127,7 +126,7 @@ public class Validation {
         }
     }
 
-    private static void validateSingle(String s) throws Exception {
+    private static void validateCharacter(String s) throws Exception {
         int i = 0;
         while (i < s.length()) {
             char c = s.charAt(i);
