@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class FindSubLinkedNode {
 
-  static class LinkedList {
+  private class LinkedList {
     int val;
     LinkedList next;
 
@@ -15,7 +15,7 @@ public class FindSubLinkedNode {
     }
   };
 
-  private static int count(LinkedList head) {
+  private int count(LinkedList head) {
     int count = 1;
     while (head.next != null) {
       head = head.next;
@@ -24,7 +24,7 @@ public class FindSubLinkedNode {
     return count;
   }
 
-  public static LinkedList insert(LinkedList head, int val) {
+  private LinkedList insert(LinkedList head, int val) {
     if (head == null) {
       head = new LinkedList(val);
     } else {
@@ -38,7 +38,7 @@ public class FindSubLinkedNode {
     return head;
   }
 
-  static int find(LinkedList list, LinkedList sublist) {
+  private int find(LinkedList list, LinkedList sublist) {
     LinkedList first = sublist;
     int sourceCount = count(list);
     int targetCount = count(sublist);
@@ -68,7 +68,7 @@ public class FindSubLinkedNode {
     return -1;
   }
 
-  public static int solution(int[] arr, int[] subarr) {
+  private int solution(int[] arr, int[] subarr) {
     LinkedList list = null;
     for (int i = 0; i < arr.length; i++) {
       list = insert(list, arr[i]);

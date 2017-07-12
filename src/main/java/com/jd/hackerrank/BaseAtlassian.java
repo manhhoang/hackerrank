@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class BaseAtlassian {
 
-  static String convert(long input) {
+  private String convert(long input) {
     Map<String, String> map = new HashMap<>();
     map.put("0", "0");
     map.put("1", "a");

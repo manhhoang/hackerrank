@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class Robot {
 
-  static String compute(String instructions) {
+  private String compute(String instructions) {
     int[] arr = new int[10];
     int index = 0;
     boolean hold = false;

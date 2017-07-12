@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class LookAndSayAlgo {
 
-  static String LookAndSay(String start, int n) {
+  private String lookAndSay(String start, int n) {
     String ans = start;
     while (n > 0) {
       ans = "";
@@ -22,7 +22,7 @@ public class LookAndSayAlgo {
           }
         }
         if (i != j) {
-          ans += count + "" + start.charAt(i);
+          ans += Integer.toString(count) + start.charAt(i);
           i = j;
         } else {
           i++;
@@ -37,31 +37,31 @@ public class LookAndSayAlgo {
 
   @Test
   public void test1() {
-    Assert.assertEquals("1", LookAndSay("1", 0));
+    Assert.assertEquals("1", lookAndSay("1", 0));
   }
 
   @Test
   public void test2() {
-    Assert.assertEquals("21", LookAndSay("11", 1));
+    Assert.assertEquals("21", lookAndSay("11", 1));
   }
 
   @Test
   public void test3() {
-    Assert.assertEquals("1211", LookAndSay("11", 2));
+    Assert.assertEquals("1211", lookAndSay("11", 2));
   }
 
   @Test
   public void test4() {
-    Assert.assertEquals("111221", LookAndSay("11", 3));
+    Assert.assertEquals("111221", lookAndSay("11", 3));
   }
 
   @Test
   public void test5() {
-    Assert.assertEquals("312211", LookAndSay("11", 4));
+    Assert.assertEquals("312211", lookAndSay("11", 4));
   }
 
   @Test
   public void test6() {
-    Assert.assertEquals("13112221", LookAndSay("11", 5));
+    Assert.assertEquals("13112221", lookAndSay("11", 5));
   }
 }

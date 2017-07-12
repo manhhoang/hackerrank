@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class Validation {
 
-    public static String validate(String msg) {
+    private String validate(String msg) {
         String errorFormat = "0:0:0:format_error";
         try {
             validateCharacter(msg);
@@ -44,7 +44,7 @@ public class Validation {
         }
     }
 
-    private static Object[] validateHeader(String record) throws Exception {
+    private Object[] validateHeader(String record) throws Exception {
         record = record.replace("~|", "__");
         if (!record.startsWith("|") || !record.endsWith("|")) {
             throw new Exception();
@@ -69,7 +69,7 @@ public class Validation {
         return results;
     }
 
-    private static int[] validateRecord(String record) throws Exception {
+    private int[] validateRecord(String record) throws Exception {
         record = record.replace("~|", "__");
         if (!record.startsWith("|") || !record.endsWith("|")) {
             throw new Exception();
@@ -96,7 +96,7 @@ public class Validation {
         return results;
     }
 
-    private static String[] correct(String[] records) {
+    private String[] correct(String[] records) {
         List<String> result = new ArrayList<>();
         for (int i = 0; i < records.length; i++) {
             while (records[i].startsWith("~n")) {
@@ -111,7 +111,7 @@ public class Validation {
         return a;
     }
 
-    private static void validateEscape(String s) throws Exception {
+    private void validateEscape(String s) throws Exception {
         int i = 0;
         while (i < s.length()) {
             char c = s.charAt(i);
@@ -126,7 +126,7 @@ public class Validation {
         }
     }
 
-    private static void validateCharacter(String s) throws Exception {
+    private void validateCharacter(String s) throws Exception {
         int i = 0;
         while (i < s.length()) {
             char c = s.charAt(i);
