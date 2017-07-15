@@ -7,53 +7,53 @@ import java.util.Scanner;
 
 public class Quicksort1Partition {
 
-  private static void exch(int[] a, int i, int j) {
-    int swap = a[i];
-    a[i] = a[j];
-    a[j] = swap;
-  }
-
-  private static int partition(int[] a, int lo, int hi) {
-    int i = lo;
-    int j = hi + 1;
-    int p = a[lo];
-    while (true) {
-      while (a[++i] < p)
-        if (i == hi)
-          break;
-
-      // find item on hi to swap
-      while (p < a[--j])
-        if (j == lo)
-          break; // redundant since a[lo] acts as sentinel
-
-      // check if pointers cross
-      if (i >= j)
-        break;
-
-      exch(a, i, j);
+    private static void exch(int[] a, int i, int j) {
+        int swap = a[i];
+        a[i] = a[j];
+        a[j] = swap;
     }
 
-    // put partitioning item v at a[j]
-    exch(a, lo, j);
+    private static int partition(int[] a, int lo, int hi) {
+        int i = lo;
+        int j = hi + 1;
+        int p = a[lo];
+        while (true) {
+            while (a[++i] < p)
+                if (i == hi)
+                    break;
 
-    // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-    return j;
+            // find item on hi to swap
+            while (p < a[--j])
+                if (j == lo)
+                    break; // redundant since a[lo] acts as sentinel
 
-  }
+            // check if pointers cross
+            if (i >= j)
+                break;
 
-  public static void main(String[] args) throws IOException {
-    String path = new File(".").getCanonicalPath();
-    String fileName = path + "/src/Quicksort 1 - Partition";
-    File file = new File(fileName);
-    Scanner sc = new Scanner(file);
-    int N = sc.nextInt();
-    int[] a = new int[N];
-    for (int i = 0; i < N; i++) {
-      a[i] = sc.nextInt();
+            exch(a, i, j);
+        }
+
+        // put partitioning item v at a[j]
+        exch(a, lo, j);
+
+        // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
+        return j;
+
     }
-    partition(a, 0, a.length - 1);
-    Arrays.stream(a).forEach(x -> System.out.print(x + " "));
-  }
+
+    public static void main(String[] args) throws IOException {
+        String path = new File(".").getCanonicalPath();
+        String fileName = path + "/src/Quicksort 1 - Partition";
+        File file = new File(fileName);
+        Scanner sc = new Scanner(file);
+        int N = sc.nextInt();
+        int[] a = new int[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = sc.nextInt();
+        }
+        partition(a, 0, a.length - 1);
+        Arrays.stream(a).forEach(x -> System.out.print(x + " "));
+    }
 
 }
