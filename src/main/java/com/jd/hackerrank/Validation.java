@@ -140,25 +140,25 @@ public class Validation {
     @Test
     public void test1() {
         Assert.assertEquals("2:3:1:address_1", validate(
-                    "|name|address|"
-                + "~n|Patrick|patrick@test.com|pat@test.com|"
-                + "~n|Annie||annie@test.com|~n"));
+                "|name|address|"
+                        + "~n|Patrick|patrick@test.com|pat@test.com|"
+                        + "~n|Annie||annie@test.com|~n"));
     }
 
     @Test
     public void test2() {
         Assert.assertEquals("2:6:7:address_4", validate(
-                    "|name|address|"
-                + "~n||1|Patrick|pat@test.com|"
-                + "~n||||Annie||annie@test.com|~n"));
+                "|name|address|"
+                        + "~n||1|Patrick|pat@test.com|"
+                        + "~n||||Annie||annie@test.com|~n"));
     }
 
     @Test
     public void test3() {
         Assert.assertEquals("2:3:2:address~n", validate(
-              "~n~n~n|age|name|address~~n|"
-                + "~n|Patrick@test.com|pat@test.com~~~||"
-                + "~n|Annie||annie@test.com|~n"));
+                "~n~n~n|age|name|address~~n|"
+                        + "~n|Patrick@test.com|pat@test.com~~~||"
+                        + "~n|Annie||annie@test.com|~n"));
     }
 
     @Test

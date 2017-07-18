@@ -91,5 +91,6 @@ public class LCA_CommonManager {
 
         Node ans = lca(root, a, b);
         System.out.println(ans.name);
+        sc.close();
     }
 }
