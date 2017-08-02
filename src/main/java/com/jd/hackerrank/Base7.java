@@ -7,7 +7,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-public class BaseAtlassian {
+public class Base7 {
 
     private String convert(long input) {
         Map<String, String> map = new HashMap<>();
